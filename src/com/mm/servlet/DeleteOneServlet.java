@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mm.service.ListService;
+import com.mm.service.MaintainService;
 
 /**
- * Servlet implementation class ListServlet
+ * Servlet implementation class DeleteOneServlet
  */
-@WebServlet("/List")
-public class ListServlet extends HttpServlet {
+@WebServlet("/DeleteOneServlet")
+public class DeleteOneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ListServlet() {
+	public DeleteOneServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -31,19 +31,16 @@ public class ListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//设置编码
+		// TODO Auto-generated method stub
+		// 设置编码
 		request.setCharacterEncoding("UTF-8");
-		//接受页面的值
-		String command = request.getParameter("command");
-		String description = request.getParameter("description");
-		//向页面传值
-		request.setAttribute("command", command);
-		request.setAttribute("description", description);
-		ListService listService = new ListService();
-		//查询消息列表并传给页面
-		request.setAttribute("messageList", listService.queryMessageList(command, description));
-		//向页面跳转
-		request.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(request, response);
+		// 接受页面的值
+		String id = request.getParameter("id");
+		// 调用service处理业务逻辑
+		MaintainService maintainService = new MaintainService();
+		maintainService.deleteOne(id);
+		// 向页面跳转
+		request.getRequestDispatcher("/List").forward(request, response);
 	}
 
 	/**
@@ -53,6 +50,7 @@ public class ListServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

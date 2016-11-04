@@ -7,19 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mm.service.ListService;
 
 /**
- * Servlet implementation class ListServlet
+ * 对话页的初始化
  */
-@WebServlet("/List")
-public class ListServlet extends HttpServlet {
+@WebServlet("/InitTalkServlet")
+public class InitTalkServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ListServlet() {
+	public InitTalkServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -28,31 +27,22 @@ public class ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//设置编码
+		// TODO Auto-generated method stub
+		// 设置编码
 		request.setCharacterEncoding("UTF-8");
-		//接受页面的值
-		String command = request.getParameter("command");
-		String description = request.getParameter("description");
-		//向页面传值
-		request.setAttribute("command", command);
-		request.setAttribute("description", description);
-		ListService listService = new ListService();
-		//查询消息列表并传给页面
-		request.setAttribute("messageList", listService.queryMessageList(command, description));
-		//向页面跳转
-		request.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(request, response);
+		// 向页面跳转
+		request.getRequestDispatcher("/WEB-INF/jsp/front/talk.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

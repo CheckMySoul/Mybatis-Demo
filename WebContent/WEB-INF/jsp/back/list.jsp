@@ -10,8 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
 <title>内容列表页面</title>
-<link href="<%=basePath%>resources/css/all.css" rel="stylesheet"
-	type="text/css" />
+<link href="<%=basePath%>resources/css/all.css" rel="stylesheet" type="text/css" />
+<script src="<%=basePath%>resources/js/common/jquery-1.8.0.min.js" ></script>
+<script src="<%=basePath%>resources/js/common/list.js" ></script>
 </head>
 <body style="background: #e1e9eb;">
 	<form action="<%=basePath%>List.do" id="mainForm" method="post">
@@ -23,7 +24,7 @@
 			<div class="rightCont">
 				<p class="g_title fix">
 					内容列表 <a class="btn03" href="#">新 增</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-						class="btn03" href="#">删 除</a>
+						class="btn03" href="javascript:deleteBatch('<%=basePath%>')">删 除</a>
 				</p>
 				<table class="tab1">
 					<tbody>
@@ -53,11 +54,12 @@
 								varStatus="status">
 								<tr
 									<c:if test="${status.index % 2 !=0 }">style="background-color:#ECF6EE;"</c:if>>
-									<td><input type="checkbox" /></td>
+									<td><input type="checkbox" name="ids" value="${message.id}" /></td>
 									<td>${status.index + 1}</td>
 									<td>${message.command}</td>
 									<td>${message.description}</td>
-									<td><a href="#">修改</a>&nbsp;&nbsp;&nbsp; <a href="#">删除</a>
+									<td><a href="#">修改</a>&nbsp;&nbsp;&nbsp;
+										<a href="${basePath}DeleteOneServlet?id=${message.id}">删除</a>
 									</td>
 								</tr>
 							</c:forEach>

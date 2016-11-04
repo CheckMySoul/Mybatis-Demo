@@ -11,6 +11,12 @@ import com.mm.dao.MessageDao;
  *
  */
 public class ListService {
+	/**
+	 * 列表查询信息
+	 * @param command
+	 * @param description
+	 * @return
+	 */
 	public List<Message> queryMessageList(String command,String description){
 		MessageDao messageDao = new MessageDao();
 		return messageDao.queryMessageList(command, description);

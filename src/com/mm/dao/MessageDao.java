@@ -2,10 +2,11 @@ package com.mm.dao;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
-
 import com.mm.bean.Message;
 import com.mm.db.DBAccess;
 
@@ -16,6 +17,12 @@ import com.mm.db.DBAccess;
  */
 public class MessageDao {
 
+	/**
+	 * 列表查询信息
+	 * @param command
+	 * @param description
+	 * @return
+	 */
 	public List<Message> queryMessageList(String command,String description){
 		DBAccess dbAccess = new DBAccess();
 		List<Message> messageList = new ArrayList<Message>();
@@ -37,6 +44,54 @@ public class MessageDao {
 		return messageList;
 	}
 	
+	/**
+	 * 单条删除
+	 * @param id
+	 */
+	public void deleteOne(int id){
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			//通过sqlSession执行SQL语句
+			sqlSession.delete("Message.deleteOne",id);
+			sqlSession.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+	}
+	
+	/**
+	 * 批量删除
+	 * @param id
+	 */
+	public void deleteBatch(List<Integer> ids){
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			//通过sqlSession执行SQL语句
+			sqlSession.delete("Message.deleteBatch",ids);
+			sqlSession.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		MessageDao messageDao = new MessageDao();
+		messageDao.queryMessageList("", "");
+		Map<String,Message> messageMap = new HashMap<String,Message>();
+		messageMap.put("key", new Message());
+	}
 	/**
 	 * 根据查询条件查询消息列表
 	 */
