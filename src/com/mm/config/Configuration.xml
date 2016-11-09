@@ -48,6 +48,8 @@
 
   <mappers>
     <mapper resource="com/mm/config/sqlxml/Message.xml"/>
+    <mapper resource="com/mm/config/sqlxml/Command.xml"/>
+    <mapper resource="com/mm/config/sqlxml/CommandContent.xml"/>
   </mappers>
 
 </configuration>

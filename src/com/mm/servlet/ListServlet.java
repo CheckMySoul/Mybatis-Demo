@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mm.service.ListService;
+import com.mm.service.QueryService;
 
 /**
  * Servlet implementation class ListServlet
@@ -39,7 +39,7 @@ public class ListServlet extends HttpServlet {
 		//向页面传值
 		request.setAttribute("command", command);
 		request.setAttribute("description", description);
-		ListService listService = new ListService();
+		QueryService listService = new QueryService();
 		//查询消息列表并传给页面
 		request.setAttribute("messageList", listService.queryMessageList(command, description));
 		//向页面跳转

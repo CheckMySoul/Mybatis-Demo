@@ -21,7 +21,7 @@ function send() {
 		return;
 	}
 	$.ajax({
-		url : $("#basePath").val() + "AutoReplyServlet.action",
+		url : $("#basePath").val() + "AutoReplyServlet",
 		type : "POST",
 		dataType : "text",
 		timeout : 10000,
