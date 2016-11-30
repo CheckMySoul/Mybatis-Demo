@@ -6,8 +6,8 @@ import java.util.Random;
 import com.mm.bean.Command;
 import com.mm.bean.CommandContent;
 import com.mm.bean.Message;
-import com.mm.dao.CommandDao;
-import com.mm.dao.MessageDao;
+import com.mm.dao.impl.CommandDao;
+import com.mm.dao.impl.MessageDao;
 import com.mm.util.Iconst;
 
 /**

@@ -3,7 +3,7 @@ package com.mm.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mm.dao.MessageDao;
+import com.mm.dao.impl.MessageDao;
 
 /**
  * 维护相关的业务功能

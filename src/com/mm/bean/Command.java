@@ -2,6 +2,9 @@ package com.mm.bean;
 
 import java.util.List;
 
+/**
+ *与指令表对应的实体类
+ */
 public class Command {
 	/**
 	 * 主键

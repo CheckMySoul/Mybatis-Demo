@@ -1,4 +1,4 @@
-package com.mm.dao;
+package com.mm.dao.impl;
 
 
 
@@ -13,8 +13,6 @@ import com.mm.db.DBAccess;
 
 /**
  * 与指令表对应的数据库操作
- * @author Operations
- *
  */
 public class CommandDao {
 	/**

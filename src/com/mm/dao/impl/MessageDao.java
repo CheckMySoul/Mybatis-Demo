@@ -1,4 +1,4 @@
-package com.mm.dao;
+package com.mm.dao.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,12 +8,11 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import com.mm.bean.Message;
+import com.mm.dao.IMessage;
 import com.mm.db.DBAccess;
 
 /**
  * 和message表相关的数据库操作
- * @author Operations
- *
  */
 public class MessageDao {
 

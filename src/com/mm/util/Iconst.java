@@ -2,8 +2,6 @@ package com.mm.util;
 
 /**
  * 共通的常量定义
- * @author Operations
- *
  */
 public interface Iconst {
 
