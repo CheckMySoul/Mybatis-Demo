@@ -33,7 +33,8 @@ public class MessageDao {
 			message.setCommand(command);
 			message.setDescription(description);
 			//通过sqlSession执行SQL语句
-			messageList = sqlSession.selectList("Message.queryMessageList",message);
+			IMessage imessage = sqlSession.getMapper(IMessage.class);
+			messageList = imessage.queryMessageList(message);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
