@@ -18,4 +18,7 @@
 		<result column="COMMAND_ID" jdbcType="VARCHAR" property="command_id" />
 	</resultMap>
 
+	<insert id="insertOne" parameterType="com.mm.bean.CommandContent">
+		insert into COMMAND_CONTENT(CONTENT,COMMAND_ID) values(#{content},#{command_id})
+	</insert>
 </mapper>

@@ -32,5 +32,5 @@ public class MaintainService {
 			idList.add(Integer.valueOf(id));
 		}
 		messageDao.deleteBatch(idList);
-	}   
+	}
 }
